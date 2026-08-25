@@ -14,7 +14,7 @@ Desarrollar un modelo de regresión que prediga el costo médico anual de un cli
 
 **Criterio de éxito:**
 - R² ≥ 0.75
-- MAE ≤ $4,000
+- MAE ≤ \$4,000
 
 ## Dataset
 
@@ -32,11 +32,11 @@ Desarrollar un modelo de regresión que prediga el costo médico anual de un cli
 
 | Modelo | R² | MAE | MSE |
 |---|---|---|---|
-| **Regresión Lineal (final)** | **0.879** | **$2,378** | 18,752,018 |
-| Random Forest | 0.864 | $2,554 | 21,167,834 |
-| Árbol de Decisión | 0.848 | $2,872 | 23,580,839 |
+| **Regresión Lineal (final)** | **0.879** | **\$2,378** | 18,752,018 |
+| Random Forest | 0.864 | \$2,554 | 21,167,834 |
+| Árbol de Decisión | 0.848 | \$2,872 | 23,580,839 |
 
-El modelo final (Regresión Lineal, con variables de interacción fumador×IMC) **supera ambas metas** del criterio de éxito: R² ≈ 0.88 (meta ≥ 0.75) y MAE ≈ $2,378 (meta ≤ $4,000, ~41% mejor que el umbral).
+El modelo final (Regresión Lineal, con variables de interacción fumador×IMC) **supera ambas metas** del criterio de éxito: R² ≈ 0.88 (meta ≥ 0.75) y MAE ≈ \$2,378 (meta ≤ \$4,000, ~41% mejor que el umbral).
 
 ## Cómo ejecutar
 
