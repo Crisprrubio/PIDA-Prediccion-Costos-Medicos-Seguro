@@ -24,19 +24,25 @@ Desarrollar un modelo de regresión que prediga el costo médico anual de un cli
 
 - [`PIDA-Notebook-Completo.ipynb`](PIDA-Notebook-Completo.ipynb) — notebook con las 4 etapas del proyecto:
   1. Entendimiento del negocio (antecedentes, problema, objetivos, diccionario de datos)
-  2. Entendimiento de los datos (EDA: estadísticas descriptivas, visualizaciones, hallazgos)
-  3. Preparación de los datos (codificación, features de interacción, justificación de decisiones)
-  4. Modelación y evaluación (comparación de 3 modelos, ajuste de hiperparámetros, selección del modelo final)
+  2. Entendimiento de los datos (EDA: estadísticas descriptivas, visualizaciones univariadas/bivariadas/multivariadas, hallazgos)
+  3. Preparación de los datos (codificación, feature de interacción `smoker_bmi`, justificación de decisiones)
+  4. Modelación y evaluación (comparación de 3 modelos, ajuste de hiperparámetros, búsqueda ampliada con AutoML, importancia de variables, selección del modelo final)
 
 ## Resultados
 
-| Modelo | R² | MAE | MSE |
-|---|---|---|---|
-| **Regresión Lineal (final)** | **0.879** | **USD 2,378** | 18,752,018 |
-| Random Forest | 0.864 | USD 2,554 | 21,167,834 |
-| Árbol de Decisión | 0.848 | USD 2,872 | 23,580,839 |
+| Modelo | R² | MAE | MSE | Tiempo entrenamiento |
+|---|---|---|---|---|
+| Random Forest | 0.866 | USD 2,552 | 20,838,910 | 0.49 s |
+| **Regresión Lineal (final)** | **0.865** | **USD 2,757** | 20,919,720 | 0.002 s |
+| Árbol de Decisión | 0.848 | USD 2,872 | 23,580,839 | 0.002 s |
 
-El modelo final (Regresión Lineal, con variables de interacción fumador×IMC) **supera ambas metas** del criterio de éxito: R² ≈ 0.88 (meta ≥ 0.75) y MAE ≈ USD 2,378 (meta ≤ USD 4,000, ~41% mejor que el umbral).
+Random Forest y Regresión Lineal quedan prácticamente empatados (diferencia de ~0.0005 en R² y ~USD 205 en MAE, dentro del margen de variación esperable de una sola partición train/test). Se elige la **Regresión Lineal** como modelo final por su interpretabilidad: con la variable de interacción `smoker_bmi`, captura de forma explicable el efecto conjunto de fumar y el IMC, algo que el Random Forest no ofrece con la misma claridad.
+
+**Ajuste de hiperparámetros** (Ridge, variables escaladas): alpha=0.1, R² ≈ 0.865, MAE ≈ USD 2,758 — prácticamente idéntico a la Regresión Lineal sin regularizar, esperable dado el tamaño y simplicidad del conjunto de datos.
+
+**Búsqueda ampliada (AutoML, FLAML):** el mejor algoritmo encontrado (XGBoost) alcanzó R² ≈ 0.880 y MAE ≈ USD 2,433 — el mejor resultado numérico del proyecto, aunque sin representar una mejora determinante frente a los modelos manuales.
+
+El modelo final (Regresión Lineal) **supera ambas metas** del criterio de éxito: R² ≈ 0.865 (meta ≥ 0.75) y MAE ≈ USD 2,757 (meta ≤ USD 4,000, ~31% mejor que el umbral).
 
 ## Cómo ejecutar
 
