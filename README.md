@@ -20,13 +20,17 @@ Desarrollar un modelo de regresión que prediga el costo médico anual de un cli
 
 [`insurance.csv`](insurance.csv) — [Medical Cost Personal Datasets](https://www.kaggle.com/datasets/mirichoi0218/insurance) (Kaggle). 1,338 registros, 7 variables: `age`, `sex`, `bmi`, `children`, `smoker`, `region`, `charges`.
 
+## Dashboard
+
+[Dashboard interactivo en Tableau Public](https://public.tableau.com/app/profile/cristian.rubio5368/viz/CostosMdicosdeSeguro-PIDA/DashboardCostosMedicosdeSeguro): costo esperado por edad, por categoría de IMC y tabaquismo, y costo real vs. predicho por el modelo.
+
 ## Contenido
 
 - [`PIDA-Notebook-Completo.ipynb`](PIDA-Notebook-Completo.ipynb) — notebook con las 4 etapas del proyecto:
   1. Entendimiento del negocio (antecedentes, problema, objetivos, diccionario de datos)
-  2. Entendimiento de los datos (EDA: estadísticas descriptivas, visualizaciones univariadas/bivariadas/multivariadas, hallazgos)
+  2. Entendimiento de los datos (EDA: estadísticas descriptivas, visualizaciones univariadas/bivariadas/multivariadas, pruebas de hipótesis y correlación, hallazgos)
   3. Preparación de los datos (codificación, feature de interacción `smoker_bmi`, justificación de decisiones)
-  4. Modelación y evaluación (comparación de 3 modelos, ajuste de hiperparámetros, búsqueda ampliada con AutoML, importancia de variables, selección del modelo final)
+  4. Modelación y evaluación (comparación de 3 modelos, ajuste de hiperparámetros, búsqueda ampliada con AutoML, importancia de variables, pruebas de significancia y validación de supuestos del modelo final, selección del modelo final)
 
 ## Resultados
 
